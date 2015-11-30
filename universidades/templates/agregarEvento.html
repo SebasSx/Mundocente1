@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/estilos.css">
+
+</head>
+
+<body>
+
+	<main>
+
+
+		<nav class="pink">
+			<div class="nav-wrapper">
+
+				<div class="container">
+
+					<a href="/inicioUniversidad" class="brand-logo"> Mundocente</a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="/"><i class="material-icons">search</i></a></li>
+						<li><a href="/"><i class="material-icons">settings</i></a></li>
+						<li><a href="/salir"><i class="material-icons">input</i></a></li>
+					</ul>
+
+				</div>
+
+			</div>
+		</nav>
+
+
+		<div class="row"  align="center">
+				<h5>Agregar Evento</h5>
+				<form class="col s10"  method="POST" action="/agregarConvocatoria/">
+					{% csrf_token %}
+				<div class="row">
+
+					<div class="input-field col s12">
+          				<input id="nombre" type="text" class="validate">
+          				<label for="nombre">Nombre</label>
+        			</div>
+
+
+  					<div class="input-field col s12">
+          				<input type="date" class="datepicker">
+          				<label>Fecha Inicio</label>
+        			</div>
+
+        			<div class="input-field col s12">
+          				<input type="date" class="datepicker">
+          				<label>Fecha Fin</label>
+        			</div>
+
+
+        			<div class="input-field col s12">
+          				<input id="lugar" type="text" class="validate">
+          				<label for="lugar">Lugar</label>
+        			</div>
+
+        			<div class="input-field col s12">
+    					<select multiple>
+      						<option value="" disabled selected>Seleccione areas</option>
+      						<option value="1">Humanidades</option>
+     						<option value="2">Educacion</option>
+      						<option value="3">Ciencia</option>
+    					</select>
+    					<label>Areas</label>
+  					</div>
+
+  					<div class="input-field col s12">
+          				<input id="enlace" type="text" class="validate">
+          				<label for="enlace">Enlace</label>
+        			</div>
+
+        			<div class="input-field col s6">
+							<!-- <button class="btn waves-effect waves-light" type="submit" name="action">Continuar
+								<i class="material-icons right">send</i>
+							</button> -->
+							<a href="/inicioUniversidad" class="btn waves-effect waves-light">Continuar<i class="material-icons right">send</i></a>
+						</div>
+
+				</div>
+
+					
+					
+				</form>
+		</div>
+
+			<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+	
+	<!-- Compiled and minified JavaScript -->
+	<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+
+	<script type="text/javascript" src="/static/js/materialize.js"></script>
+
+
+</body>
+
+
+</html>		

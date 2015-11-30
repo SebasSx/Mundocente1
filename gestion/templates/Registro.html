@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/estilos.css">
+
+</head>
+
+<body>
+
+	<main>
+
+		<div class="container">
+			
+			<div class="centrado">
+
+				<img   src="/static/img/mundocente.png"  alt="Mundocente" >
+			</div>
+
+			<div class="row">
+
+				<form class="col s10"  method="POST" action="/guardar/">
+					{% csrf_token %}
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="user" type="text" class="validate" name="username">
+							<label for="user">Usuario</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="nombre" type="text" class="validate" name="nombre">
+							<label for="nombre">Nombre</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="apellido" type="text" class="validate" name="apellido">
+							<label for="user">Apellido</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="email" type="email" class="validate" name="email">
+							<label for="email">email</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="password" type="password" class="validate" name="password">
+							<label for="password">Password</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="password" type="password" class="validate" name="password">
+							<label for="password">Confirmar Password</label>
+						</div>
+					</div>
+
+					<div class="input-field col s12" style="display: none;">
+          				<input id="tipo" type="text" name="tipo" class="validate" value="Docente">
+        			</div>
+
+        			<div class="input-field col s12" style="display: none;">
+          				<input id="telefono" type="text" name="telefono" class="validate" value="555-999">
+        			</div>
+
+        			<div class="input-field col s12" style="display: none;">
+          				<input id="credito" type="number" name="credito" class="validate" value="5">
+        			</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<button class="btn waves-effect waves-light" type="submit" name="action">Continuar
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+					
+					
+				</form>
+			</div>
+
+
+			<!-- Page Content goes here -->
+		</div>
+
+
+	</main>
+
+	<footer class="page-footer pink">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Mundocente</h5>
+					<p class="grey-text text-lighten-4">Tunja , Direccion </p>
+					<p class="grey-text text-lighten-4">Telefono + 57 3192521991 </p>
+					<p class="grey-text text-lighten-4">mundocente@contacto.com</p>
+
+
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Mas Informacion</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Contacto</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Eventos</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Revistas</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Universidades/a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2015 Copyright Mundocente
+				<a class="grey-text text-lighten-4 right" href="#!">Terminos y Condiciones</a>
+			</div>
+		</div>
+	</footer>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+	
+	<!-- Compiled and minified JavaScript -->
+	<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+
+</body>
+</html>

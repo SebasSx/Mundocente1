@@ -1,0 +1,13 @@
+Django==1.6
+MySQL-python==1.2.5
+Pillow==2.9.0
+PyPDF2==1.25.1
+South==1.0.2
+dj-database-url==0.3.0
+html5lib==0.999999
+pisa==3.0.33
+reportlab==3.2.0
+requests==2.7.0
+six==1.9.0
+wsgiref==0.1.2
+xhtml2pdf==0.0.6

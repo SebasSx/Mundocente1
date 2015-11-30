@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<link rel="stylesheet" type="text/css" href="/static/css/estilos.css">
+
+
+</head>
+
+<body>
+
+	<main>
+
+
+		<nav class="pink">
+			<div class="nav-wrapper">
+
+				<div class="container">
+
+					<a href="#!" class="brand-logo"> Mundocente</a>
+					<ul class="right hide-on-med-and-down">
+						
+
+						<li><a href="/"><i class="material-icons">search</i></a></li>
+						<li><a href="/"><i class="material-icons">settings</i></a></li>
+						<li><a href="/salir"><i class="material-icons">input</i></a></li>
+					</ul>
+
+				</div>
+				
+			</div>
+
+		</nav>
+		Creditos : <input disabled type="number"  id="credito" name="num" value="{{credito.credito}}">
+		
+		<div class="row">
+			<!-- inicio columna  -->
+			<div class="col s4" >
+				<h3>Convocatorias</h3>
+				<div class="scroll">
+				<!-- Inicio carta -->
+				{% for i in convocatorias %}
+					<div class="row">
+				        <div class="col s12 m12">
+				          <div class="card blue-grey darken-1">
+				            <div class="card-content white-text">
+				              <span class="card-title">{{i.universidad}}</span>
+				              <p>{{i.descripcion}}</p>
+				              {% for j in areasC %}
+				              <p>{{j.area.nombre_area}}</p>
+				              {% endfor %}
+				              <p>{{i.lugar}}</p>
+				              <p>{{i.fecha_inicio}}</p>
+				              <p>{{i.fecha_fin}}</p>
+				            </div>
+				            <div  class="card-action" >
+				              <a id="link" class="ver  {{i.pk}}r "  pk= "{{i.pk}}" >VER ENLACE</a>
+
+				              <a class="link {{i.pk}}v" style="display : none ; " href="{{i.link}}">{{i.link}}</a>
+				            </div>
+				          </div>
+				        </div>
+				     </div>
+				 <!--Fin Carta  -->
+				 {% endfor %}
+				</div>
+			</div>	
+			<!-- Fin columna -->
+
+
+			<!-- inicio columna  -->
+			<div class="col s4" >
+				
+				<h3>Revistas</h3>
+				<div class="scroll">
+				<!-- Inicio carta -->
+				{% for i in revistas %}
+					<div class="row">
+				        <div class="col s12 m12">
+				          <div class="card blue-grey darken-1">
+				            <div class="card-content white-text">
+				              <span class="card-title">{{i.universidad}}</span>
+				              <p>{{i.descripcion}}</p>
+				              {% for j in areasR %}
+				              <p>{{j.area.nombre_area}}</p>
+				              {% endfor %}
+				              <p>{{i.lugar}}</p>
+				              <p>{{i.fecha_inicio}}</p>
+				              <p>{{i.fecha_fin}}</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">{{i.link}}</a>
+				            </div>
+				          </div>
+				        </div>
+				     </div>
+				 <!--Fin Carta  -->
+				 {% endfor %}
+				</div>
+			</div>	
+			<!-- Fin columna -->
+
+			<!-- inicio columna  -->
+			<div class="col s4" >
+				
+				<h3>Eventos</h3>
+				<div class="scroll">
+				<!-- Inicio carta -->
+				{% for i in eventos %}
+					<div class="row">
+				        <div class="col s12 m12">
+				          <div class="card blue-grey darken-1">
+				            <div class="card-content white-text">
+				              <span class="card-title">{{i.universidad}}</span>
+				              <p>{{i.descripcion}}</p>
+				              {% for j in areasE %}
+				              <p>{{j.area.nombre_area}}</p>
+				              {% endfor %}
+				              <p>{{i.lugar}}</p>
+				              <p>{{i.fecha_inicio}}</p>
+				              <p>{{i.fecha_fin}}</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">{{i.link}}</a>
+				            </div>
+				          </div>
+				        </div>
+				     </div>
+				 <!--Fin Carta  -->
+				 {% endfor %}
+				</div>
+			</div>	
+			<!-- Fin columna -->			
+		</div>
+
+
+
+		<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+	
+	<!-- Compiled and minified JavaScript -->
+		<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+		<script type="text/javascript" src="/static/js/materialize.js"></script>
+
+	<script>
+	function getCookie(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie != '') {
+			var cookies = document.cookie.split(';');
+			for (var i = 0; i < cookies.length; i++) {
+				var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            	cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            	break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+function sameOrigin(url) {
+    // test that a given url is a same-origin URL
+    // url could be relative or scheme relative or absolute
+    var host = document.location.host; // host + port
+    var protocol = document.location.protocol;
+    var sr_origin = '//' + host;
+    var origin = protocol + sr_origin;
+    // Allow absolute or scheme relative URLs to same origin
+    return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+    (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+        // or any other URL that isn't scheme relative or absolute i.e relative.
+        !(/^(\/\/|http:|https:).*/.test(url));
+    }
+    $.ajaxSetup({
+    	beforeSend: function(xhr, settings) {
+    		if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+            // Send the token to same-origin, relative URLs only.
+            // Send the token only if the method warrants CSRF protection
+            // Using the CSRFToken value acquired earlier
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+    </script>
+
+
+
+		<script type="text/javascript" src="/static/js/funciones.js"></script>
+
+
+</body>
+
+
+</html>	
